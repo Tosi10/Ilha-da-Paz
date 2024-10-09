@@ -4831,7 +4831,7 @@
 	}
 
 	.navbar.scrolled #navbar-logo {
-		content: url('/images/Logo1.png'); /* Caminho para a logo com a letra escura */
+		content: url('images/Logo1.png'); /* Caminho para a logo com a letra escura */
 	}
 
 	.navbar-brand {
