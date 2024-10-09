@@ -82,39 +82,44 @@
 			<div class="row">
 				<div class="col-md-12">
 					<a href="#" class="js-template-nt-nav-toggle template-nt-nav-toggle" data-toggle="collapse" data-target="#template-nt-navbar" aria-expanded="false" aria-controls="navbar"><span>Menu</span> <i></i></a>
-					<a href="index.html" class="navbar-brand"><img src="images/ilhalogo.png" style="width: 160px; height:auto; margin-top: 20px; "/></a>
+					<a href="index.html" class="navbar-brand"><img id="navbar-logo" src="images/Logo2.png" style="width: 160px; height:auto; margin-top: 10px; "/></a>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div id="template-nt-page">
 		<div id="template-nt-wrap">
-			<header id="template-nt-hero" data-section="home" role="banner" style="background: url(images/ilha_foto1.png) top left; background-size: cover;background-attachment:fixed;" >
-				<div class="template-nt-overlay"></div>
-				<div class="template-nt-intro">
-					<div class="container">
-						<div class="row">
-							
-							<div class="col-md-6 template-nt-text" style="margin-top: 190px; margin-left: -140px;" >
-								<h2 class="to-animate-off intro-animate-1"></h2>
-								<p class="to-animate-off intro-animate-2"></p>
-								<!--<p class="to-animate-off intro-animate-3"><a href="#" class="btn btn-primary btn-md"><i class="fa fa-cart-arrow-down"></i> Ver Apartamentos</a></p>--->
+			<header  class="container" style="height: 755px; width: 100%;">
+				
+			 	
+					<div class="row animate-box" style="height: 10%;" >
+							<div class="owl-carousel" >
+								<div class="item">
+									<div class="">
+										<figure class=""><img src="images/ilha_foto1.png" alt="" style="height: 120%;" class="img-responsive"></figure>
+									</div>
+								</div>
+								<div class="item">
+									<div class="">
+										<figure class=""><img src="images/carrossel1.png" alt="" class="img-responsive"></figure>
+									</div>
+								</div>
+								<div class="item">
+									<div class="">
+										<figure class=""><img src="images/carrossel2.png" alt="" class="img-responsive"></figure>
+									</div>
+								</div>
 							</div>
-							<div class="col-md-6 text-right template-nt-intro-img to-animate-off intro-animate-4">
-								
-							</div>
-
-						</div>
-					</div>						
+					
 				</div>
+				
 			</header>
 			<!-- END .header -->
 			
 			<div id="template-nt-main">
 				<div id="template-nt-clients">
 					<div class="container">
-						<div class="row text-center">
+						<!--<div class="row text-center">
 							<div class="col-md-3 col-sm-6 col-xs-6">
 								<figure class="template-nt-client"><img src="images/client_1.png" alt=" Template"></figure>
 							</div>
@@ -127,7 +132,7 @@
 							<div class="col-md-3 col-sm-6 col-xs-6">
 								<figure class="template-nt-client"><img src="images/client_4.png" alt=" Template"></figure>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 				<div id="template-nt-features" data-section="features">
@@ -621,7 +626,16 @@
 	
 	</div>
 	
-
+	<script>
+		window.addEventListener('scroll', function() {
+			var navbar = document.getElementById('template-nt-menu');
+			if (window.scrollY > 50) { // Ajuste o valor conforme necessário
+				navbar.classList.add('scrolled');
+			} else {
+				navbar.classList.remove('scrolled');
+			}
+		});
+	</script>
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

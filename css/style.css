@@ -4830,6 +4830,10 @@
 	  border-width: 1px 0 0;
 	}
 
+	.navbar.scrolled #navbar-logo {
+		content: url('/images/Logo1.png'); /* Caminho para a logo com a letra escura */
+	}
+
 	.navbar-brand {
 	  float: left;
 	  padding: 5px 20px;
@@ -7621,13 +7625,10 @@
 	}
 
 	#template-nt-hero {
-	  float: left;
-	  width: 100%;
-	  position: relative;
-	  padding-top: 2em;
-	  padding-bottom: 4em;
-	  height: 800px;
-	  z-index: 10;
+		height: 100vh; /* 100% da altura da viewport */
+		width: 100%;
+		overflow: hidden;
+		position: relative;
 	}
 
 	#template-nt-hero .template-nt-overlay {
@@ -8200,9 +8201,11 @@
 	}
 
 	#template-nt-testimony {
-	  background: #764134;
+	  background: #45B0A9;
 	  color: #fff;
 	  padding: 8em 0;
+	  height: 770px;
+	  width: 100%;
 	}
 	#template-nt-testimony .template-nt-vcard img {
 	  width: 170px;
@@ -8829,6 +8832,36 @@
 	  .owl-carousel .owl-controls .owl-nav {
 		display: none;
 	  }
+	}
+
+	#template-nt-testimony .container {
+		height: 100%;
+		width: 100%;
+		padding: 0; /* Remove padding */
+	}
+
+	#template-nt-testimony .row {
+		height: 100%;
+		width: 100%;
+		margin: 0; /* Remove margin */
+	}
+
+	#template-nt-testimony .owl-carousel {
+		height: 100%;
+		width: 100%;
+	}
+
+	#template-nt-testimony .owl-carousel .item {
+		height: 100vh; /* 100% da altura da viewport */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	#template-nt-testimony .owl-carousel .item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* Para garantir que a imagem cubra todo o container */
 	}
 
 	.owl-carousel .owl-controls .owl-nav .owl-next,
