@@ -34,10 +34,12 @@
 	 */
 	/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 	html {
-	  font-family: sans-serif;
-	  -ms-text-size-adjust: 100%;
-	  -webkit-text-size-adjust: 100%;
+		font-family: sans-serif;
+		-ms-text-size-adjust: 100%;        /* Suporte para Internet Explorer */
+		-webkit-text-size-adjust: 100%;    /* Suporte para versões antigas do Safari */
+		text-size-adjust: 100%;            /* Suporte para navegadores modernos (Chrome, Firefox, Edge 79+) */
 	}
+	
 
 	body {
 	  margin: 0;
@@ -1736,6 +1738,10 @@
 		height: 100%;
 		object-fit: cover; /* Para garantir que a imagem cubra todo o container */
 	}
+	html, body {
+		overflow-x: hidden;
+	}
+	
 
 	/* CSS responsivo para dispositivos móveis */
 @media (max-width: 768px) {
@@ -1743,12 +1749,22 @@
         height: auto; /* Ajusta a altura automaticamente */
     }
 
+	#template-nt-testimony .owl-carousel {
+        height: 50vh; /* Ajusta a altura do carrossel para 50% da altura da viewport */
+    }
+
+	#template-nt-testimony .owl-carousel .item {
+        height: 50vh; /* Ajusta a altura para 50% da altura da viewport */
+    }
+
     #template-nt-testimony .row {
         height: auto; /* Ajusta a altura automaticamente */
     }
 
     #template-nt-testimony .owl-carousel .item img {
-        height: auto; /* Ajusta a altura automaticamente */
+		width: 100%;
+        height: 100%; /* Ajusta a altura para ocupar 100% do item */
+        object-fit: cover; /* Garante que a imagem cubra todo o container */
     }
 }
 	
@@ -7492,7 +7508,7 @@
 
 	#template-nt-menu {
 	  background: transparent;
-	  position: absolute;
+	  position: fixed;
 	  top: 0;
 	  z-index: 999;
 	  width: 100%;

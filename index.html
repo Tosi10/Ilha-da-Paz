@@ -94,17 +94,17 @@
 					<div class="row animate-box" >
 						<div class="owl-carousel">
 							<div class="item">
-								<div class="col-md-12 col-sm-12 col-xs-12 col-xxs-12" >
+								<div class=""   style="width: 100%; height: 100%;">
 									<figure class=""><img src="images/ilha_foto1.png" alt=" " class="img-responsive"></figure>
 								</div>
 							</div>
 							<div class="item">
-								<div class="col-md-12 col-sm-12 col-xs-12 col-xxs-12" >
+								<div class="" style="width: 100%; height: 100%;">
 									<figure class="" ><img src="images/carrossel1.png" alt="" class="img-responsive"></figure>
 								</div>
 							</div>
 							<div class="item">
-								<div class="col-md-12 col-sm-12 col-xs-12 col-xxs-12" style="width: 100%; height: 100%;">
+								<div class="" style="width: 100%; height: 100%;">
 									<figure class="" ><img src="images/carrossel2.png" alt="" class="img-responsive"></figure>
 								</div>
 							</div>
@@ -625,6 +625,7 @@
 	</div>
 	
 	<script>
+		// Script para adicionar a classe 'scrolled' ao navbar ao rolar a página
 		window.addEventListener('scroll', function() {
 			var navbar = document.getElementById('template-nt-menu');
 			if (window.scrollY > 50) { // Ajuste o valor conforme necessário
@@ -634,7 +635,7 @@
 			}
 		});
 	</script>
-
+	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -649,11 +650,43 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<!-- toCount -->
 	<script src="js/jquery.countTo.js"></script>
+	
+	<!-- Correção para eventos de toque no Owl Carousel -->
+	<script>
+			$(document).ready(function() {
+				// Inicializa o Owl Carousel
+				$(".owl-carousel").owlCarousel({
+					items: 1,          // Configuração do carrossel
+					loop: true,
+					autoplay: true,
+					nav: true,
+					touchDrag: true,   // Ativa o arraste por toque
+					mouseDrag: true    // Ativa o arraste por mouse
+				});
+
+				// Adiciona um listener de evento manual para impedir o comportamento de rolagem da página
+				let preventScroll = function(e) {
+					e.preventDefault(); // Previne o comportamento padrão da rolagem
+				};
+
+				// Ativa a prevenção de rolagem ao arrastar o carrossel
+				$(".owl-carousel").on('touchstart', function() {
+					document.body.addEventListener('touchmove', preventScroll, { passive: false });
+				});
+
+				// Remove a prevenção de rolagem após o fim do arraste
+				$(".owl-carousel").on('touchend', function() {
+					document.body.removeEventListener('touchmove', preventScroll);
+				});
+			});
+
+
+	</script>
+	
+	
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
 	
-
-	
 	</body>
-
-</html>
+	</html>
+	
