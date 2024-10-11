@@ -37,77 +37,85 @@
 	};
 
 	// Single Page Nav
-	var clickMenu = function() {
-		$('a:not([class="external"])').click(function(){
-			var section = $(this).data('nav-section')
-		    $('html, body').animate({
-		        scrollTop: $('[data-section="' + section + '"]').offset().top
-		    }, 500);
-		    return false;
-		});
-	};
-
+// Single Page Nav
+var clickMenu = function() {
+    $('a:not([class="external"])').on('click', function(event) {
+        event.preventDefault(); // Mova preventDefault para o início
+        var section = $(this).data('nav-section');
+        var target = $('[data-section="' + section + '"]');
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 500);
+        }
+        return false;
+    });
+};
 	// Owl Carousel For Testimony
-	var carouselTestimony = function() {
+var carouselTestimony = function() {
+    var owl = $(".owl-carousel");
 
-		var owl = $(".owl-carousel");
-		
-		owl.owlCarousel({
-			items: 1,
-		    margin: 0,
-		    responsiveClass: true,
-		    loop: true,
-		    nav: true,
-		    dots: true,
-		    autoplay: true,
-		    smartSpeed: 500,
-			responsive:{
-				0:{
-					nav:false
-				},
-				480: {
-					nav:false
-				},
-				768:{
-					nav:false
-				},
-				1000:{
-					nav:true,
-				}
-			},
-		    navText: [
-		      "<i class='icon-arrow-left owl-direction'></i>",
-		      "<i class='icon-arrow-right owl-direction'></i>"
-	     	]
-		});
-	};
+    owl.owlCarousel({
+        items: 1,
+        margin: 0,
+        responsiveClass: true,
+        loop: true,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        smartSpeed: 500,
+        touchDrag: true,   // Ativa o arraste por toque
+        mouseDrag: true,   // Ativa o arraste por mouse
+        responsive: {
+            0: {
+                nav: false
+            },
+            480: {
+                nav: false
+            },
+            768: {
+                nav: false
+            },
+            1000: {
+                nav: true,
+            }
+        },
+        navText: [
+            "<i class='icon-arrow-left owl-direction'></i>",
+            "<i class='icon-arrow-right owl-direction'></i>"
+        ]
+    });
 
+
+};
+
+// Inicializa o carrossel quando o documento estiver pronto
+$(document).ready(function() {
+    carouselTestimony();
+});
 	// Fixed footer 
 	var footerFixed = function() {
-		var fh = $('#template-nt-footer').innerHeight();
-		$('#template-nt-wrap').css({
-			marginBottom : fh + 'px'
-		});
-
-		if ( $(window).width() < 991 ) {
-			$('#template-nt-wrap').css({
-				marginBottom: ''
-			})
-		}
-
-		$(window).resize(function(){
-
+		var updateFooterMargin = function() {
 			var fh = $('#template-nt-footer').innerHeight();
-			$('#template-nt-wrap').css({
-				marginBottom : fh + 'px'
-			});
-
-			if ( $(window).width() < 991 ) {
+			if ($(window).width() < 991) {
 				$('#template-nt-wrap').css({
 					marginBottom: ''
-				})
+				});
+			} else {
+				$('#template-nt-wrap').css({
+					marginBottom: fh + 'px'
+				});
 			}
+		};
+	
+		// Atualiza a margem do footer na inicialização
+		updateFooterMargin();
+	
+		// Atualiza a margem do footer no redimensionamento da janela
+		$(window).resize(function() {
+			updateFooterMargin();
 		});
+	
 	};
 
 	// Counter 
