@@ -4931,6 +4931,7 @@
 
 	.navbar.scrolled #navbar-logo {
 		content: url('../images/Logo1.png'); /* Caminho para a logo com a letra escura */
+		margin-top: 10px;
 	}
 
 	.navbar-brand {
@@ -7543,7 +7544,7 @@
 	  -moz-border-radius: 0px;
 	  -ms-border-radius: 0px;
 	  border-radius: 0px;
-	  margin-top: 20px;
+	  margin-top:-15px;
 	}
 	#template-nt-menu.sleep {
 	  -webkit-transform: translateY(-100%);
@@ -7866,7 +7867,7 @@
 	  margin-top: 0px;
 	  
 	  padding: 3em 0;
-	  background: #764134;
+	  background: #45B0A9;
 	  position: relative;
 	}
 	#template-nt-clients .template-nt-client {
@@ -7875,6 +7876,7 @@
 	@media screen and (max-width: 992px) {
 	  #template-nt-clients .template-nt-client {
 		margin-bottom: 30px;
+		
 	  }
 	}
 	@media screen and (max-width: 768px) {
